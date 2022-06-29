@@ -12,12 +12,16 @@ export const {
     theme:{
         colors:{
             "primary":"#4B6265",
+            "primaryH":"#2A3839",
+            "primary300":"rgba(75,98,101,0.3)",
+            "primary800":"rgba(75,98,101,0.8)",
             "onPrimary":"#FFFFFF",
             "onPrimary500":"rgba(255,255,255,0.5)",
             "onPrimary300":"rgba(255,255,255,0.3)",
             "secondaryCon":"#5C5E66",
             "onSecondaryCon":"#FFFFFF",
             "errorCon":"#FFDAD6",
+            "errorCon600":"rgba(255,218,214,0.6)",
             "onErrorCon":"#BA1A1A",
             "bg":"#FEFCFB",
             "onBg":"#1B1C1C",
@@ -88,7 +92,7 @@ export const {
             3:"24px",
             4:"32px", 
             5:"40px", 
-            "navSize":"252px"
+            6:"50px"
         },
         radii:{
             "50":"50%"
@@ -105,14 +109,16 @@ export const {
     media:{
         "bp1":"(max-width:1000px)",
         "bp2":"(max-width:750px)",
+        "bp2-1":"(max-width:700px)",
         "bp3":"(max-width:550px)",
+        "bp4":"(max-width:410px)",
 
     },
     utils:{
-        "logo":(weight:string)=>({
+        "logo":(sizes:string[])=>({
             fontFamily:"$oleo" ,
-            fontWeight:weight,
-            fontSize:"$headline1",
+            fontWeight:sizes[0],
+            fontSize:`${sizes[1]}px `,
             lineHeight:"$headline1",
             fontStyle:"normal"
          })

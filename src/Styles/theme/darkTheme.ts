@@ -3,12 +3,15 @@ import { createTheme } from "../@stitches.config";
 const darkTheme = createTheme("dark-theme" , {
     colors:{
         "primary":"#B2CBCE",
+        "primary300":"rgba(178,203,206,0.3)",
+        "primary800":"rgba(178,203,206,0.8)",
         "onPrimary":"#1D3437",
         "onPrimary500":"rgba(29,52,59,0.5)",
         "onPrimary300":"rgba(29,52,59,0.3)",
         "secondaryCon":"#C5C6CF",
         "onSecondaryCon":"#2E3037",
         "errorCon":"#FFB4AB",
+        "errorCon600":"rgba(147,0,10,0.6)",
         "onErrorCon":"#93000A",
         "bg":"#1B1C1C",
         "onBg":"#E4E2E1",

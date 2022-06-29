@@ -2,14 +2,15 @@ import React from 'react';
 import Flex from './Styles/styledComponent/Flex';
 import Text from './Styles/styledComponent/Text';
 import globalStyle from './Styles/globalCss';
+import Welcome from './components/WelcomeSection/Welcome';
+import Main from './components/Main/Main';
 function App() {
   globalStyle()
   return (
-    <div id='wrapper' data-testid="app">
-      <Flex dir={"row"}>
-        <Text css={{headline1:"900",logo:"700" }}>Hello TS world</Text>
-      </Flex>
-    </div>
+    <Flex id='wrapper' data-testid="app" css={{position:"relative",}}>
+      {/* <Welcome/> */}
+      <Main/>
+    </Flex>
   );
 }
 
