@@ -14,6 +14,7 @@ const darkTheme = createTheme("dark-theme" , {
         "errorCon600":"rgba(147,0,10,0.6)",
         "onErrorCon":"#93000A",
         "bg":"#1B1C1C",
+        "bg700":"rgba(27,28,28,0.7)",
         "onBg":"#E4E2E1",
         "onBg100":"rgba(228,226,225,0.1)",
         "onBg200":"rgba(228,226,225,0.2)",

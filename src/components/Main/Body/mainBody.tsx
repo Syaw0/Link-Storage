@@ -3,7 +3,9 @@ import Flex from "../../../Styles/styledComponent/Flex";
 import MainBodyHead from "./mainBody_head";
 import MainBodyCon from "./mainBodyCon";
 import MainSetting from "./mainSetting";
+import { useStore } from "../../../store/store";
 function MainBody(){
+    const currentBodyFile = useStore(state=>state.currentBodyFile)
     return(
         <Flex dir={"column"} css={{
             width:"100%",
@@ -11,10 +13,10 @@ function MainBody(){
             
         }}>
             <MainBodyHead/>
-        <MainBodyCon/>
-        {/* <MainSetting/> */}
+        {currentBodyFile["name"]!== "Setting" && <MainBodyCon/>}
+        {currentBodyFile["name"]==="Setting" && <MainSetting/>}
         </Flex>
-    )
+    )    
 }
 
 

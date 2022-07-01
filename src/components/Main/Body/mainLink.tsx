@@ -2,9 +2,13 @@ import React from "react";
 import Flex from "../../../Styles/styledComponent/Flex";
 import Text from "../../../Styles/styledComponent/Text";
 import Ico_StarFill from "../../../asesst/Icons/Ico_StarFill";
-function MainLink (){
+import { useStore } from "../../../store/store";
+import HandleContextMenu from "../HandleCotenxtMenu";
+
+function MainLink (props:{des:string , title:string , url:string , isStar:boolean , uid:string}){
+    const Db = useStore(state=>state.Db)
     return(
-        <Flex  dir={"row"} justify="between" align={"center"} css={{
+        <Flex onContextMenu={(e)=>{HandleContextMenu(e , props)}} role="onLink"  dir={"row"} justify="between" align={"center"} css={{
             width:"100%",
             "&>p":{
                 padding:"$2"
@@ -14,7 +18,7 @@ function MainLink (){
                 fill:"GoldenRod",
                 width:"30px"
             },
-            "&:hover":{
+            "&:hover":{ 
                 backgroundColor:"$onBg100"
             }
         }}>
@@ -23,7 +27,7 @@ function MainLink (){
                 "@bp3":{
                     subhead2:"600"
                 }
-            }}>w3Code</Text>
+            }}>{props.title}</Text>
             <Text cursor={"click"} css={{
                 subhead1:"400",
                 color:"$primary",
@@ -34,13 +38,13 @@ function MainLink (){
                     textDecoration:"underline",
                 }
                 
-            }}>www.w3Code.com</Text>
+            }}>{props.url}</Text>
             <Text css={{
                 subhead1:"300",
                 "@bp2-1":{
                     subhead2:"300"
                 }
-            }}>learn codding with very easy tutorial</Text>
+            }}>{props.des}</Text>
             {/* <Ico_StarFill width="24" height="24"/> */}
         </Flex>
     )

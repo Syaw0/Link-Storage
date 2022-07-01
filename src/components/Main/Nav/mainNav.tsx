@@ -5,7 +5,12 @@ import MainNav_Middle from "./mainNav_middle";
 import Ico_StarFill from "../../../asesst/Icons/Ico_StarFill";
 import Ico_DbChange from "../../../asesst/Icons/Ico_DbChange";
 import Ico_Setting from "../../../asesst/Icons/Ico_Setting";
+import { useStore } from "../../../store/store";
 function MainNav(){
+    const setCurrentMainCom = useStore(state=>state.setCurrentMainCom)
+    const setWhichWelcomeSection = useStore(state=>state.setWhichWelcomeSection)
+    const setCurrentBodyfile = useStore(state=>state.setCurrentBodyfile)
+
     return(
         <Flex dir={"column"} css={{
             width:"240px",
@@ -59,19 +64,19 @@ function MainNav(){
                     }
                 }
             }}>
-            <Text cursor={"click"} css={{
+            <Text onClick={()=>{setCurrentBodyfile({name:"Favorite" , links:[]})}} cursor={"click"} css={{
                     subhead1:"500"
                 }}>
                 <Ico_StarFill width="24" height="24"/>
                 Favorite Links
                 </Text>
-                <Text cursor={"click"} css={{
+                <Text onClick={()=>{setCurrentMainCom("WelcomePage") ; setWhichWelcomeSection("choose")}} cursor={"click"} css={{
                     subhead1:"500"
                 }}>
                 <Ico_DbChange width="24" height="24"/>
                 Change Storage
                 </Text>
-                <Text cursor={"click"} css={{
+                <Text onClick={()=>{setCurrentBodyfile({name:"Setting", links:[]})}} cursor={"click"} css={{
                     subhead1:"500"
                 }}>
                 <Ico_Setting width="24" height="24"/>

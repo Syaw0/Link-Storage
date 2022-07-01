@@ -2,7 +2,12 @@ import React from "react";
 import Flex from "../../Styles/styledComponent/Flex";
 import Text from "../../Styles/styledComponent/Text";
 import Input from "../../Styles/styledComponent/Input";
+import { useStore } from "../../store/store";
+
 function Welcome_Empty(){
+
+    const setWhichWelcomeSection = useStore(state=>state.setWhichWelcomeSection)
+
     return(
         <Flex dir={"column"} justify="start" align={"start"} css={{
             width:"100%" , height:"100%", paddingTop:"$5" 
@@ -19,7 +24,7 @@ function Welcome_Empty(){
                 }
 
             }}>
-                 <Text  cursor={"click"} css={{
+                 <Text onClick={()=>{setWhichWelcomeSection("create")}}  cursor={"click"} css={{
                     color:"$onPrimary",
                     backgroundColor:"$primary",
                     button:"700" ,

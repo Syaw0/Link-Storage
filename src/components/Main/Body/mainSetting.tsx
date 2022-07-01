@@ -1,7 +1,11 @@
 import React from "react";
+import { useStore } from "../../../store/store";
 import Flex from "../../../Styles/styledComponent/Flex";
 import Text from "../../../Styles/styledComponent/Text";
 function MainSetting(){
+    const setCurrentTheme = useStore(state=>state.setCurrentTheme)
+    const currentTheme = useStore(state=>state.currentTheme)
+    const setDelete = useStore(state=>state.setDeleteWhat)
     return(
         <Flex dir={"column"} justify="start" align={"start"} css={{
             width:'100%',
@@ -14,16 +18,20 @@ function MainSetting(){
                 borderBottom:"1px solid $onBg100",
             }
         }}> 
-            <Text cursor={"click"} css={{
+            <Text onClick={()=>{currentTheme === "light" ? setCurrentTheme("dark"):setCurrentTheme("light")}} cursor={"click"} css={{
                 subhead1:"500",
                 color:"$onBg700",
                 "&:hover":{
                     color:"$onBg"
                 }
-            }}>Change Theme (Dark)</Text>
-            <Text cursor={"click"} css={{
+            }}>Change Theme ({currentTheme==="light"?"Dark":"Light"})</Text>
+            <Text onClick={()=>{setDelete("AllStore")}} cursor={"click"} css={{
                 subhead1:"500",
-                color:"$onErrorCon"
+                color:"$onErrorCon",
+                "&:hover":{
+                    color:"Red",
+                    // textDecoration:"underline"
+                }
             }}>Delete All Storage</Text>
         </Flex>
     )

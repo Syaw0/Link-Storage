@@ -1,8 +1,15 @@
 import React from "react";
+import { useStore } from "../../store/store";
 import Flex from "../../Styles/styledComponent/Flex";
 import Text from "../../Styles/styledComponent/Text";
 import Welcome_Choose_Items from "./Wel_Choose_items";
+
+
 function Welcome_Choose(){
+    const setWhichWelcomeSection = useStore(state=>state.setWhichWelcomeSection)
+    const setMainCom = useStore(state=>state.setCurrentMainCom)
+    const setStorage = useStore(state=>state.setCurrentStorage)
+    const AllDb = useStore(state=>state.AllDb)
     return(
         <Flex dir={"column"} justify="start" align={"start"} css={{
             width:"100%" , height:"100%", paddingTop:"$5" 
@@ -16,20 +23,20 @@ function Welcome_Choose(){
                 marginTop:"$2",
                 padding:"$1 0"
             }}>
-                <Welcome_Choose_Items text="FrontEnd" /> 
-                <Welcome_Choose_Items text="Global" /> 
-                <Welcome_Choose_Items text="BackEnd" /> 
-                <Welcome_Choose_Items text="Stoicism" /> 
-                <Welcome_Choose_Items text="JobFind" /> 
-                <Welcome_Choose_Items text="Books" /> 
-                <Welcome_Choose_Items text="Article" /> 
+                {
+                    Object.keys(AllDb).map((v,i)=>{
+                        return(
+                            <Welcome_Choose_Items key={i} text={v} click={()=>{setMainCom("MainPage");setStorage(v)}} />             
+                        )
+                    })
+                }
 
             </Flex>
             <Flex justify={"center"} align="center" css={{
                 width:"100%",
                 paddingTop:"$6"
             }}>
-                <Text  cursor={"click"} css={{
+                <Text  onClick={()=>{setWhichWelcomeSection("create")}}   cursor={"click"} css={{
                     color:"$onBg500",
                     borderBottom:"1px solid $onBg500",
                     button:"400" ,

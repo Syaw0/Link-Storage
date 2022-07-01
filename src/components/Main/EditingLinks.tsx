@@ -3,46 +3,71 @@ import { useStore } from "../../store/store";
 import Flex from "../../Styles/styledComponent/Flex";
 import Input from "../../Styles/styledComponent/Input";
 import Text from "../../Styles/styledComponent/Text";
-import {v4 as uuid} from "uuid"
-function AddingNewLink (){
-    const [inputs,setInputs] = useState({title:"" , url:""  , des:""})
+
+function EditingLinks (){
+    const currentContextElement = useStore(state=>state.currentContextElement)
+    const [inputs,setInputs] = useState({title:currentContextElement["title"] , url:currentContextElement["url"]  , des:currentContextElement["des"]})
     const setWhichFloatCom = useStore(state=>state.setWhichFloatCom)
     const [handleCreate , setHandleCreate] = useState({display:false , errormssg:""})
     const currentFile = useStore(state=>state.currentBodyFile)
     const currentStorage  = useStore(state=>state.currentStorage)
+    const setCurrentBodyFile = useStore(state=>state.setCurrentBodyfile)
     const Db = useStore(state=>state.Db)
     const updateDb = useStore(state=>state.updateDb)
-    
+
 
     const HandleAddLinks = ()=>{
         if(inputs.des.trim() !=="" && inputs.title.trim() !=="" && inputs.url.trim() !==""){
             setHandleCreate({display:false , errormssg:""})
-            // let newDbData:{[index:string]:any} = {}
 
-            let newLink: {[index:string]:any} = {title:inputs.title , url:inputs.url , des:inputs.des , isStar:false , uid:uuid()}
+            let newLink: {[index:string]:any} = {title:inputs.title , url:inputs.url , des:inputs.des , isStar:false}
 
-            let newDbData = Db.map((v:any)=>{
-                if(v.uid === currentFile.parent){
 
-                    let newSubDir = v.subDir.map((v2:any)=>{
-                        if(v2.uid === currentFile.uid){
-                            v2.links.push(newLink)
-                            return v2
-                        }else{
-                            return v2
-                        }
-                    })
-                    return {...v,subDir:newSubDir}
-                }
-                else if(v.uid === currentFile.uid){
-                    v.links.push(newLink)
-                    return v
+            let newArr = currentFile.links.map((v:any)=>{
+                if(v.uid === currentContextElement.uid)  {
+                    return newLink
                 }else{
                     return v
                 }
             })
+
+            let newDb
+            
+            if(currentFile.parent !== "null"){
+                newDb = Db.map((v:any)=>{
+                    
+                    if(v.uid === currentFile.parent){
+                        v.subDir.map((v2:any)=>{
+                            if(v2.uid === currentFile.uid){
+                                v2.links = newArr
+                                return v2
+                            }else{
+                                return v2
+                            }
+                        })
+                        return v
+                    }else{
+                        return v
+                    }
+                    
+                })
+            }else{
+                newDb = Db.map((v:any)=>{
+                    
+                    if(v.uid === currentFile.uid){
+                        v.links = newArr
+                        return v
+                    }else{
+                        return v
+                    }
+                    
+                })
+            }
+
             setWhichFloatCom(false)
-            updateDb(newDbData , currentStorage , false)
+            updateDb(newDb , currentStorage , false)
+            console.log(currentFile)
+            setCurrentBodyFile({name:currentFile.name , links:newArr})
         }else{
             setHandleCreate({display:true , errormssg:"inputs must have a value!"})
         }
@@ -74,7 +99,7 @@ function AddingNewLink (){
                 headline3:"700",
                 textDecoration:"underline",
                 padding:"$3 0"
-            }}>Adding New Link</Text>
+            }}>Editing Link</Text>
             
 
             <Input onChange={(e)=>{setInputs(state=>{return{...state,title:e.target.value}})}} value={inputs.title} placeholder="Your Title like myFavSite " inputType={"text"} css={{
@@ -129,7 +154,7 @@ function AddingNewLink (){
                     backgroundColor:"$onPrimary",
                 }
 
-            }}> Add Link</Text>
+            }}> Edit Link</Text>
             <Text onClick={()=>{setWhichFloatCom(false)}} cursor={"click"} css={{
                 color:"$onPrimary",
                 backgroundColor:"",
@@ -152,4 +177,4 @@ function AddingNewLink (){
 
 
 
-export default AddingNewLink
+export default EditingLinks

@@ -3,8 +3,11 @@ import Flex from "../../../Styles/styledComponent/Flex";
 import Text from "../../../Styles/styledComponent/Text";
 import Ico_AddLink from "../../../asesst/Icons/Ico_AddLink";
 import Ico_EditOrder from "../../../asesst/Icons/Ico_EditOrder";
+import { useStore } from "../../../store/store";
 
 function MainBodyHead(){
+    const currentFile = useStore(state=>state.currentBodyFile)
+    const setWhichFloatCom = useStore(state=>state.setWhichFloatCom)
     return(
         <Flex dir={"row"} justify="between" align={"center"} css={{
             width:"100%",
@@ -22,7 +25,7 @@ function MainBodyHead(){
                 <Text css={{
                     headline6:"500"
                 }}>
-                    Tutorial Links
+                    {currentFile.name}
                 </Text>
             </Flex>
 
@@ -41,12 +44,15 @@ function MainBodyHead(){
                     }
                 },
             }}>
-                <Ico_EditOrder width="24" height="24"/>
-                <Ico_AddLink width="24" height="24"/>
+                {currentFile.name !== "" && currentFile.name !== "Setting" && currentFile.name !== "Favorite" &&
+                <>
+                {/* <Ico_EditOrder click={()=>{}} width="24" height="24"/> */}
+                <Ico_AddLink click={()=>{setWhichFloatCom("Adding")}} width="24" height="24"/>
+                </>}
             </Flex>
         </Flex>
     )
-
+ 
 }
 
 

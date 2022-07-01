@@ -24,6 +24,7 @@ export const {
             "errorCon600":"rgba(255,218,214,0.6)",
             "onErrorCon":"#BA1A1A",
             "bg":"#FEFCFB",
+            "bg700":"rgba(254,252,251,0.7)",
             "onBg":"#1B1C1C",
             "onBg100":"rgba(27,28,28,0.1)",
             "onBg200":"rgba(27,28,28,0.2)",
@@ -34,6 +35,7 @@ export const {
             "onBg700":"rgba(27,28,28,0.7)",
             "onBg800":"rgba(27,28,28,0.8)",
             "onBg900":"rgba(27,28,28,0.9)",
+            "white300":"rgba(255,255,255,0.3)"
         },
         shadows:{
             "1dp":"0px 0px 2px 0px #00000024 , 0px 2px 2px 0px #0000001f , 0px 1px 3px 0px  #00000033" ,

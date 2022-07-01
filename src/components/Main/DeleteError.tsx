@@ -2,7 +2,37 @@ import React from "react";
 import Flex from "../../Styles/styledComponent/Flex";
 import Text from "../../Styles/styledComponent/Text";
 import Span from "../../Styles/styledComponent/Span";
+import { useStore } from "../../store/store";
+import darkTheme from "../../Styles/theme/darkTheme";
 function DeleteError(){
+    const texts:{[index:string]:any}= {
+        AllStore:<Text css={{
+            color:"$onErrorCon",
+            headline6:"500",
+            padding:"$1",
+            [`.${darkTheme} &`]:{
+                color:"$errorCon",
+            }
+        }}>Careful , This Action Will 
+        <Span css={{headline6:"900"}}> Delete All </Span> 
+         The Data From Your Store
+        </Text> ,
+        Folder:<Text css={{
+            color:"$onErrorCon",
+            headline6:"500",
+            padding:"$1"
+        }}>This Action 
+        <Span css={{headline6:"900"}}> Delete All </Span> 
+         The Contain Files  On 
+         <Span css={{headline6:"900"
+        }}> Folder1</Span>
+        </Text> ,
+
+
+    }
+    const deleteWhat = useStore(state=>state.deleteWhat)
+    const setDeleteWhat = useStore(state=>state.setDeleteWhat)
+    const deleteItem = useStore(state=>state.deleteItem)
     return(
         <Flex dir={"column"} justify="center" align={"center"} css={{
             width:"100%",
@@ -17,18 +47,14 @@ function DeleteError(){
             <Text css={{
                 headline3:"900",
                 color:"$onErrorCon",
+                [`.${darkTheme} &`]:{
+                    color:"$errorCon",
+                }
                 
             }}>ARE YOU SURE??</Text>
-            <Text css={{
-                color:"$onErrorCon",
-                headline6:"500",
-                padding:"$1"
-            }}>This Action 
-            <Span css={{headline6:"900"}}> Delete All </Span> 
-             The Contain Files  On 
-             <Span css={{headline6:"900"
-            }}> Folder1</Span>
-            </Text>
+          {
+            texts[deleteWhat]
+          }
 
             <Flex justify={"center"} align="center" css={{
                 padding:"$3",
@@ -39,7 +65,7 @@ function DeleteError(){
                     border:"1px solid transparent",
                 }
             }}>
-                <Text css={{
+                <Text onClick={()=>{setDeleteWhat("")}} css={{
                     color:"$primary",
                     button:"700",
                     "&:hover":{
@@ -48,6 +74,7 @@ function DeleteError(){
 
                 }}>Cancel</Text>
 
+                {deleteWhat !== "AllStore" && 
                 <Text css={{
                     color:"$onErrorCon",
                     backgroundColor:"$errorCon",
@@ -61,8 +88,9 @@ function DeleteError(){
 
                                         
                 }}>Delete And Dont  Show This Again</Text>
+                }
 
-                <Text css={{
+                <Text onClick={()=>{deleteItem(deleteWhat)}} css={{
 
                     color:"$onErrorCon",
                     backgroundColor:"$errorCon",
@@ -75,7 +103,7 @@ function DeleteError(){
                     }
 
                                         
-                }}>DELETE</Text>
+                }}>Delete</Text>
             </Flex>
 
 
