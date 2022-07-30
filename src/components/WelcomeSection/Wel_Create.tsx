@@ -41,7 +41,7 @@ function Welcome_Create(){
             
             }}>
 
-            <Text css={{headline4:"600"}}>What is Your Store Name?</Text>
+            <Text data-test="create-head" css={{headline4:"600"}}>What is Your Store Name?</Text>
             <Flex  justify="start" align={"start"} css={{
                 // overflowY:"hidden",
                 width:"100%" ,
@@ -49,7 +49,7 @@ function Welcome_Create(){
                 padding:"$1 0",
                 position:"relative"
             }}>
-                <Input value={input} onChange={(e)=>{setInput(e.target.value)}} placeholder="like : Prod Links , Book links and etc" inputType={"text"} css={{
+                <Input data-test="create-input" value={input} onChange={(e)=>{setInput(e.target.value)}} placeholder="like : Prod Links , Book links and etc" inputType={"text"} css={{
                     width:"100%",
                     border:"1px solid $onBg200",
                     borderRadius:"8px",
@@ -64,7 +64,7 @@ function Welcome_Create(){
                     left:"5px",
                     bottom:"-15px"
                 }}>
-                    <Text css={{
+                    <Text data-test="create-error" css={{
                         subhead2:"500",
                         color:"$onErrorCon"
                     }}>{handleCreate.errormssg}</Text>
@@ -79,7 +79,7 @@ function Welcome_Create(){
                 }
 
             }}>
-                <Text onClick={()=>{Object.keys(AllDb).length === 0 ?setWhichWelcomeSection("empty"):setWhichWelcomeSection("choose")}}   cursor={"click"} css={{
+                <Text data-test="create-login" onClick={()=>{Object.keys(AllDb).length === 0 ?setWhichWelcomeSection("empty"):setWhichWelcomeSection("choose")}}   cursor={"click"} css={{
                     color:"$onBg500",
                     button:"700" ,
                     "@bp4":{
@@ -89,7 +89,7 @@ function Welcome_Create(){
                         color:"$onBg800",
                     }
                 }}>Get Into A Exist Storage</Text>
-                 <Text onClick={createHandle}  cursor={"click"} css={{
+                 <Text data-test="create-create" onClick={createHandle}  cursor={"click"} css={{
                     color:"$onPrimary",
                     backgroundColor:"$primary",
                     button:"700" ,

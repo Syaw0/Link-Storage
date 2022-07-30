@@ -64,19 +64,19 @@ function MainNav(){
                     }
                 }
             }}>
-            <Text onClick={()=>{setCurrentBodyfile({name:"Favorite" , links:[]})}} cursor={"click"} css={{
+            <Text data-test='nav-fav' onClick={()=>{setCurrentBodyfile({name:"Favorite" , links:[]})}} cursor={"click"} css={{
                     subhead1:"500"
                 }}>
                 <Ico_StarFill width="24" height="24"/>
                 Favorite Links
                 </Text>
-                <Text onClick={()=>{setCurrentMainCom("WelcomePage") ; setWhichWelcomeSection("choose")}} cursor={"click"} css={{
+                <Text data-test='nav-change-storage' onClick={()=>{setCurrentMainCom("WelcomePage") ; setWhichWelcomeSection("choose")}} cursor={"click"} css={{
                     subhead1:"500"
                 }}>
                 <Ico_DbChange width="24" height="24"/>
                 Change Storage
                 </Text>
-                <Text onClick={()=>{setCurrentBodyfile({name:"Setting", links:[]})}} cursor={"click"} css={{
+                <Text data-test='nav-setting' onClick={()=>{setCurrentBodyfile({name:"Setting", links:[]})}} cursor={"click"} css={{
                     subhead1:"500"
                 }}>
                 <Ico_Setting width="24" height="24"/>

@@ -16,12 +16,12 @@ function MainNav_Middle(){
 
 
     return(
-        <Flex role={"onBoxNav"} onContextMenu={(e)=>{HandleContextMenu(e)}} dir={"column"} css={{
+        <Flex data-test='nav-middle' role={"onBoxNav"} onContextMenu={(e)=>{HandleContextMenu(e)}} dir={"column"} css={{
             padding:"$3 0 0 $1",
             height:"100%",
             
             }}>
-            <Text onClick={()=>{setIsOpen(state=>!state)}} cursor={"click"} css={{
+            <Text data-test="nav-storeName" onClick={()=>{setIsOpen(state=>!state)}} cursor={"click"} css={{
                 flex_r:"" , jfs_ac:"",
                 color:"$onBg",
                 headline6:"600",
@@ -43,6 +43,7 @@ function MainNav_Middle(){
                 borderBottom:"1px solid $onBg100",
                 padding:"$1 0",
                 height:`${isOpen?"60%":"0px"}`,
+                display:`${isOpen?"flex":"none"}`,
                 transition:"height 0.5s"
             }}>
 
@@ -53,7 +54,7 @@ function MainNav_Middle(){
                         
                             if(v.tag === "file"){
                                 return(
-                                    <Text onContextMenu={(e)=>{HandleContextMenu(e)}} role={"onFile"} onClick={()=>{setCurrentBodyfile({name:v.name , links:v.links, uid:v.uid , parent:v.parent})}} key={i} cursor={"click"} css={{
+                                    <Text data-test='nav-file' onContextMenu={(e)=>{HandleContextMenu(e)}} role={"onFile"} onClick={()=>{setCurrentBodyfile({name:v.name , links:v.links, uid:v.uid , parent:v.parent})}} key={i} cursor={"click"} css={{
                                         subhead1:"500" ,
                                         borderRadius:"8px",
                                         padding:"$1",

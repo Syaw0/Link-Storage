@@ -16,7 +16,7 @@ function Welcome_Choose(){
             
             }}>
 
-            <Text css={{headline4:"600"}}>Choose Your Storage</Text>
+            <Text data-test="choose-storage" css={{headline4:"600"}}>Choose Your Storage</Text>
             <Flex dir={"column"} justify="start" align={"start"} css={{
                 overflowY:"scroll",
                 width:"100%" ,
@@ -36,7 +36,7 @@ function Welcome_Choose(){
                 width:"100%",
                 paddingTop:"$6"
             }}>
-                <Text  onClick={()=>{setWhichWelcomeSection("create")}}   cursor={"click"} css={{
+                <Text data-test="choose-create"  onClick={()=>{setWhichWelcomeSection("create")}}   cursor={"click"} css={{
                     color:"$onBg500",
                     borderBottom:"1px solid $onBg500",
                     button:"400" ,

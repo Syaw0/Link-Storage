@@ -8,7 +8,7 @@ import HandleContextMenu from "../HandleCotenxtMenu";
 function MainLink (props:{des:string , title:string , url:string , isStar:boolean , uid:string}){
     const Db = useStore(state=>state.Db)
     return(
-        <Flex onContextMenu={(e)=>{HandleContextMenu(e , props)}} role="onLink"  dir={"row"} justify="between" align={"center"} css={{
+        <Flex data-test='main-link' onContextMenu={(e)=>{HandleContextMenu(e , props)}} role="onLink"  dir={"row"} justify="between" align={"center"} css={{
             width:"100%",
             "&>p":{
                 padding:"$2"

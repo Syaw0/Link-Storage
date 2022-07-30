@@ -49,7 +49,7 @@ function AddingNewLink (){
     }
 
     return(
-        <Flex justify={"center"} align="center" css={{
+        <Flex  justify={"center"} align="center" css={{
             width:"100%",
             height:"100%",
             position:"fixed",
@@ -70,14 +70,14 @@ function AddingNewLink (){
              }
             }}>
                 
-            <Text css={{
+            <Text data-test='adding-head' css={{
                 headline3:"700",
                 textDecoration:"underline",
                 padding:"$3 0"
             }}>Adding New Link</Text>
             
 
-            <Input onChange={(e)=>{setInputs(state=>{return{...state,title:e.target.value}})}} value={inputs.title} placeholder="Your Title like myFavSite " inputType={"text"} css={{
+            <Input data-test='adding-title-input' onChange={(e)=>{setInputs(state=>{return{...state,title:e.target.value}})}} value={inputs.title} placeholder="Your Title like myFavSite " inputType={"text"} css={{
                 borderBottomColor:"$onPrimary300",
                 "&:focus":{
                     borderBottomColor:"$onPrimary",
@@ -86,7 +86,7 @@ function AddingNewLink (){
                     color:"$onPrimary"
                 }
             }}></Input>
-                <Input onChange={(e)=>{setInputs(state=>{return{...state,url:e.target.value}})}} value={inputs.url} placeholder="Your Link Url  " inputType={"text"} css={{
+                <Input data-test='adding-url-input' onChange={(e)=>{setInputs(state=>{return{...state,url:e.target.value}})}} value={inputs.url} placeholder="Your Link Url  " inputType={"text"} css={{
                 borderBottomColor:"$onPrimary300",
                 "&:focus":{
                     borderBottomColor:"$onPrimary",
@@ -95,7 +95,7 @@ function AddingNewLink (){
                     color:"$onPrimary"
                 }
             }}></Input>
-                <Input onChange={(e)=>{setInputs(state=>{return{...state,des:e.target.value}})}} value={inputs.des} placeholder="Your Description  " inputType={"text"} css={{
+                <Input data-test='adding-des-input' onChange={(e)=>{setInputs(state=>{return{...state,des:e.target.value}})}} value={inputs.des} placeholder="Your Description  " inputType={"text"} css={{
                 borderBottomColor:"$onPrimary300",
                 "&:focus":{
                     borderBottomColor:"$onPrimary",
@@ -110,7 +110,7 @@ function AddingNewLink (){
                     left:"5px",
                     bottom:"-35px"
                 }}>
-                    <Text css={{
+                    <Text data-test='adding-error' css={{
                         subhead2:"500",
                         color:"$onErrorCon"
                     }}>{handleCreate.errormssg}</Text>
@@ -118,7 +118,7 @@ function AddingNewLink (){
 
             <Flex justify={"center"} align="center">
 
-            <Text onClick={(e)=>{HandleAddLinks()}} cursor={"click"}  css={{
+            <Text data-test='adding-add' onClick={(e)=>{HandleAddLinks()}} cursor={"click"}  css={{
                 color:"$onPrimary",
                 backgroundColor:"",
                 border:"1px solid $onPrimary",
@@ -130,7 +130,7 @@ function AddingNewLink (){
                 }
 
             }}> Add Link</Text>
-            <Text onClick={()=>{setWhichFloatCom(false)}} cursor={"click"} css={{
+            <Text  data-test='adding-cancel'onClick={()=>{setWhichFloatCom(false)}} cursor={"click"} css={{
                 color:"$onPrimary",
                 backgroundColor:"",
                 

@@ -2,10 +2,10 @@ import React from "react";
 import Flex from "../../Styles/styledComponent/Flex";
 import Text from "../../Styles/styledComponent/Text";
 import Ico_Folder from "../../asesst/Icons/Ico_folder";
-function Welcome_Choose_Items({text , click}:{text:string , click:()=>void}  ){
+function Welcome_Choose_Items({text , click }:{text:string , click:()=>void}  ){
     
     return(
-        <Flex onClick={click} dir={"row"} justify="start" align={"center"} css={{
+        <Flex  onClick={click} dir={"row"} justify="start" align={"center"} css={{
             cursor:"pointer",
             width:"100%",
             // border:"1px solid black",
@@ -21,7 +21,7 @@ function Welcome_Choose_Items({text , click}:{text:string , click:()=>void}  ){
             }
         }}>
             <Ico_Folder  role={""} width="25" height="25"/>
-            <Text cursor={"click"} css={{paddingLeft:"$1"}}>{text}</Text>
+            <Text data-test="choose-item" cursor={"click"} css={{paddingLeft:"$1"}}>{text}</Text>
         </Flex>
     )
 }

@@ -14,7 +14,7 @@ function Welcome_Empty(){
             
             }}>
 
-            <Text css={{headline4:"600"}}>You do not have storage space!</Text>
+            <Text data-test="empty-warn" css={{headline4:"600"}}>You do not have storage space!</Text>
           
             <Flex justify={"start"} align="center" css={{
                 width:"100%",
@@ -24,7 +24,7 @@ function Welcome_Empty(){
                 }
 
             }}>
-                 <Text onClick={()=>{setWhichWelcomeSection("create")}}  cursor={"click"} css={{
+                 <Text data-test="empty-create" onClick={()=>{setWhichWelcomeSection("create")}}  cursor={"click"} css={{
                     color:"$onPrimary",
                     backgroundColor:"$primary",
                     button:"700" ,

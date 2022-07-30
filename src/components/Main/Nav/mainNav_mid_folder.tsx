@@ -16,7 +16,7 @@ function MainNav_mid_Folder(props:{[index:string]:any}){
             
         }}>
 
-            <Flex onClick={()=>{setIsOpen(state=>!state)}} css={{
+            <Flex data-test='nav-folder' onClick={()=>{setIsOpen(state=>!state)}} css={{
                 cursor:"click",
                 width:"100%",
                 padding:"$1",
@@ -62,6 +62,7 @@ function MainNav_mid_Folder(props:{[index:string]:any}){
 
             <Flex  dir={"column"} css={{
                 height:`${isOpen?"60%":"0px"}`,
+                display:`${isOpen?"flex":"none"}`,
                 transition:"height 0.4s",
                 overflow:"hidden",
 
@@ -77,7 +78,7 @@ function MainNav_mid_Folder(props:{[index:string]:any}){
                     props.subDir.map((v:any , i:number)=>{
                         
                         return(
-                            <Text onContextMenu={(e)=>{HandleContextMenu(e)}} role={"onFile"} onClick={()=>{setCurrentBodyfile({name:v.name , links:v.links , uid:v.uid ,parent:v.parent})}} key={i} cursor={"click"} css={{
+                            <Text data-test='nav-folder-items' onContextMenu={(e)=>{HandleContextMenu(e)}} role={"onFile"} onClick={()=>{setCurrentBodyfile({name:v.name , links:v.links , uid:v.uid ,parent:v.parent})}} key={i} cursor={"click"} css={{
                                 subhead1:"500" ,
                                 marginLeft:"$2",
                                 borderRadius:"8px",

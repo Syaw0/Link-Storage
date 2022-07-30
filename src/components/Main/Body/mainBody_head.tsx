@@ -22,7 +22,7 @@ function MainBodyHead(){
                     padding:"$1"
                 }
             }}>
-                <Text css={{
+                <Text data-test='main-header' css={{
                     headline6:"500"
                 }}>
                     {currentFile.name}
@@ -47,7 +47,7 @@ function MainBodyHead(){
                 {currentFile.name !== "" && currentFile.name !== "Setting" && currentFile.name !== "Favorite" &&
                 <>
                 {/* <Ico_EditOrder click={()=>{}} width="24" height="24"/> */}
-                <Ico_AddLink click={()=>{setWhichFloatCom("Adding")}} width="24" height="24"/>
+                <Ico_AddLink  click={()=>{setWhichFloatCom("Adding")}} width="24" height="24"/>
                 </>}
             </Flex>
         </Flex>

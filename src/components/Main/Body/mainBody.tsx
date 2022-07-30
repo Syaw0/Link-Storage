@@ -7,7 +7,7 @@ import { useStore } from "../../../store/store";
 function MainBody(){
     const currentBodyFile = useStore(state=>state.currentBodyFile)
     return(
-        <Flex dir={"column"} css={{
+        <Flex data-test='main' dir={"column"} css={{
             width:"100%",
             height:"100%",
             

@@ -44,7 +44,7 @@ function DeleteError(){
             top:"0"
         }}>
 
-            <Text css={{
+            <Text data-test='warn-head' css={{
                 headline3:"900",
                 color:"$onErrorCon",
                 [`.${darkTheme} &`]:{
@@ -65,7 +65,7 @@ function DeleteError(){
                     border:"1px solid transparent",
                 }
             }}>
-                <Text onClick={()=>{setDeleteWhat("")}} css={{
+                <Text data-test='warn-cancel' onClick={()=>{setDeleteWhat("")}} css={{
                     color:"$primary",
                     button:"700",
                     "&:hover":{
@@ -75,7 +75,7 @@ function DeleteError(){
                 }}>Cancel</Text>
 
                 {deleteWhat !== "AllStore" && 
-                <Text css={{
+                <Text data-test='warn-deleteAlways' css={{
                     color:"$onErrorCon",
                     backgroundColor:"$errorCon",
                     border:"1px solid $onErrorCon",
@@ -90,7 +90,7 @@ function DeleteError(){
                 }}>Delete And Dont  Show This Again</Text>
                 }
 
-                <Text onClick={()=>{deleteItem(deleteWhat)}} css={{
+                <Text data-test='warn-delete' onClick={()=>{deleteItem(deleteWhat)}} css={{
 
                     color:"$onErrorCon",
                     backgroundColor:"$errorCon",

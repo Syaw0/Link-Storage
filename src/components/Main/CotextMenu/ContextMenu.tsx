@@ -15,7 +15,7 @@ function ContextMenu(){
     const currentContextElement = useStore(state=>state.currentContextElement)
     // console.log(currentContextElement)
     return(
-        <Flex dir={"column"} justify="center" align={"start"} css={{
+        <Flex data-test='context' dir={"column"} justify="center" align={"start"} css={{
             position:"fixed",
             width:"auto",
             // height:"10rem",
