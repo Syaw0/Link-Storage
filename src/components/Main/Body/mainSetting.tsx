@@ -18,7 +18,7 @@ function MainSetting(){
                 borderBottom:"1px solid $onBg100",
             }
         }}> 
-            <Text  onClick={()=>{currentTheme === "light" ? setCurrentTheme("dark"):setCurrentTheme("light")}} cursor={"click"} css={{
+            <Text data-test='main-setting-theme' onClick={()=>{currentTheme === "light" ? setCurrentTheme("dark"):setCurrentTheme("light")}} cursor={"click"} css={{
                 subhead1:"500",
                 color:"$onBg700",
                 "&:hover":{

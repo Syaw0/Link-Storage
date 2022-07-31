@@ -21,7 +21,7 @@ function App() {
   },[])
 
   return (
-    <Flex onContextMenu={(e)=>{e.preventDefault()}} onClick={()=>{setDisplayContextMenu("none")}} id='wrapper' className={currentTheme === "light" ?theme:darkTheme} data-testid="app" css={{position:"relative",}}>
+    <Flex data-test='app' onContextMenu={(e)=>{e.preventDefault()}} onClick={()=>{setDisplayContextMenu("none")}} id='wrapper' className={currentTheme === "light" ?theme:darkTheme} data-testid="app" css={{position:"relative",}}>
       {currentMainPage === "WelcomePage"  && <Welcome/>}
       {currentMainPage === "MainPage"  && <Main/>}
     </Flex>

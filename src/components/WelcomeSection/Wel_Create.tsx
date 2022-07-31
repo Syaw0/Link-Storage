@@ -79,7 +79,7 @@ function Welcome_Create(){
                 }
 
             }}>
-                <Text data-test="create-login" onClick={()=>{Object.keys(AllDb).length === 0 ?setWhichWelcomeSection("empty"):setWhichWelcomeSection("choose")}}   cursor={"click"} css={{
+                <Text  data-test="create-login" onClick={()=>{Object.keys(AllDb).length === 0 ?setWhichWelcomeSection("empty"):setWhichWelcomeSection("choose")}}   cursor={"click"} css={{
                     color:"$onBg500",
                     button:"700" ,
                     "@bp4":{

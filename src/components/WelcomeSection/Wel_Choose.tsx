@@ -17,7 +17,7 @@ function Welcome_Choose(){
             }}>
 
             <Text data-test="choose-storage" css={{headline4:"600"}}>Choose Your Storage</Text>
-            <Flex dir={"column"} justify="start" align={"start"} css={{
+            <Flex data-test='choose-storage-holder' dir={"column"} justify="start" align={"start"} css={{
                 overflowY:"scroll",
                 width:"100%" ,
                 marginTop:"$2",
